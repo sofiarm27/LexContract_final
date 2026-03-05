@@ -15,7 +15,7 @@ async function start() {
 
     // Iniciar Backend
     console.log(yellow('[2/3] Iniciando Backend (puerto 8000)...'));
-    const backend = spawn('python', ['-m', 'uvicorn', 'main:app', '--reload', '--host', '127.0.0.1', '--port', '8000'], {
+    const backend = spawn('python', ['-m', 'uvicorn', 'app.main:app', '--reload', '--host', '127.0.0.1', '--port', '8000'], {
         cwd: './backend',
         shell: true,
         stdio: 'pipe'

@@ -81,6 +81,8 @@ def sync_payments(db: Session, db_contract: Contrato):
 def create_contract(db: Session, contract_data: dict):
     if not contract_data.get("id"):
         contract_data["id"] = generate_id(db, "CNT")
+    if "estado" in contract_data:
+        contract_data["estado"] = str(contract_data["estado"]).upper()
     db_contract = Contrato(**contract_data)
     created_contract = contract_repository.create_contract(db, db_contract)
     sync_payments(db, created_contract)
@@ -123,7 +125,7 @@ def generate_contract_from_template(db: Session, plantilla_id: str, contract_dat
         "abogado_id": contract_data.get("abogado_id"),
         "tipo": "contrato",
         "es_biblioteca": False,
-        "estado": "Borrador",
+        "estado": "BORRADOR",
         "clauses": template.clauses,
         "total": contract_data.get("total"),
         "variables_adicionales": contract_data.get("variables_adicionales")
@@ -158,6 +160,8 @@ def update_contract(db: Session, contract_id: str, contract_update: dict):
         if key in ["texto", "tipo"] and db_contract.es_biblioteca:
             continue
         if value is not None and hasattr(db_contract, key):
+            if key == "estado":
+                value = str(value).upper()
             setattr(db_contract, key, value)
             
     updated_contract = contract_repository.update_contract(db, db_contract)

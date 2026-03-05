@@ -408,15 +408,15 @@ const Contracts = () => {
                                                     fontSize: '0.75rem',
                                                     fontWeight: 600,
                                                     backgroundColor:
-                                                        contract.estado === 'TERMINADO' ? 'rgba(34, 197, 94, 0.15)' :
-                                                            contract.estado === 'BORRADOR' ? 'rgba(245, 158, 11, 0.15)' :
+                                                        contract.estado?.toUpperCase() === 'TERMINADO' ? 'rgba(34, 197, 94, 0.15)' :
+                                                            contract.estado?.toUpperCase() === 'BORRADOR' ? 'rgba(245, 158, 11, 0.15)' :
                                                                 'rgba(239, 68, 68, 0.15)',
                                                     color:
-                                                        contract.estado === 'TERMINADO' ? '#22c55e' :
-                                                            contract.estado === 'BORRADOR' ? '#f59e0b' :
+                                                        contract.estado?.toUpperCase() === 'TERMINADO' ? '#22c55e' :
+                                                            contract.estado?.toUpperCase() === 'BORRADOR' ? '#f59e0b' :
                                                                 '#ef4444',
-                                                    border: `1px solid ${contract.estado === 'TERMINADO' ? 'rgba(34, 197, 94, 0.3)' :
-                                                        contract.estado === 'BORRADOR' ? 'rgba(245, 158, 11, 0.3)' :
+                                                    border: `1px solid ${contract.estado?.toUpperCase() === 'TERMINADO' ? 'rgba(34, 197, 94, 0.3)' :
+                                                        contract.estado?.toUpperCase() === 'BORRADOR' ? 'rgba(245, 158, 11, 0.3)' :
                                                             'rgba(239, 68, 68, 0.3)'
                                                         }`
                                                 }}>

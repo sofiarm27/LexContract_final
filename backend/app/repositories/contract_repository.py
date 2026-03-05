@@ -37,5 +37,6 @@ def count_contracts(db: Session, user_id: int = None, estado: str = None, es_bib
     if user_id:
         query = query.filter(Contrato.abogado_id == user_id)
     if estado:
-        query = query.filter(Contrato.estado == estado)
+        from sqlalchemy import func
+        query = query.filter(func.upper(Contrato.estado) == estado.upper())
     return query.count()
