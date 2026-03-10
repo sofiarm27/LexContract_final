@@ -11,3 +11,4 @@ python-dotenv
 alembic
 pydantic[email]
 cors
+gunicorn==23.0.0
