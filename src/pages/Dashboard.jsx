@@ -1,3 +1,4 @@
+//componentes reutilizables
 import React, { useState, useEffect } from 'react';
 import { LayoutDashboard, Users, FileText, CheckCircle, Clock, FileWarning, MoreHorizontal, ArrowUpRight } from 'lucide-react';
 import Card from '../components/Card';

@@ -18,7 +18,7 @@ class Contrato(Base):
     __tablename__ = "contrato"
     id = Column(String(50), primary_key=True, index=True)
     titulo = Column(String(255))
-    cliente_id = Column(Integer, ForeignKey("cliente.id"))
+    cliente_id = Column(Integer, ForeignKey("cliente.id"))  #Relacion muchos a 1
     abogado_id = Column(Integer, ForeignKey("usuario.id"))
     plantilla_id = Column(Integer, ForeignKey("plantilla.id"))
     estado = Column(String(20), default="BORRADOR")

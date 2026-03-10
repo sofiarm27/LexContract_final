@@ -4,6 +4,7 @@ from sqlalchemy.sql import func
 from app.db.base_class import Base
 
 # Association Table for M:N relationship between Usuario and Rol
+# Relacion de muchos a muchos Un usuario puede tener varios roles y un rol puede tener varios usuarios
 usuario_rol = Table(
     'usuario_rol', Base.metadata,
     Column('usuario_id', Integer, ForeignKey('usuario.id', ondelete="CASCADE"), primary_key=True),
