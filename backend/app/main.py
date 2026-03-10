@@ -23,6 +23,7 @@ app.add_middleware(
         "http://[::1]:5174",
         "http://localhost:3000",
         "http://127.0.0.1:3000",
+        "https://lex-contract-final.vercel.app",
     ],
     allow_credentials=True,
     allow_methods=["*"],
